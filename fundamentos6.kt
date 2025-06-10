@@ -2,8 +2,20 @@ package com.vvelasquez.fundamentos
 
 fun main(){
     //condicionalWhen()
-    condicionalWhen2(7)
+    //condicionalWhen2(7)
+
+    // Guardar el resultado en una variable para evitar múltiples llamadas
+    val resultado = condicionalWhen3()
+    if (resultado == 1)
+        print("Es una unidad")
+    else if (resultado == 10)
+        print("Es una decena")
+    else if (resultado == 100)
+        print("Es una centena")
+    else
+        print("Fuera de rango")
 }
+
 /*fun condicionalWhen(){
     //Conocer los dias de la semana por su numero
     val dia = 5
@@ -18,6 +30,7 @@ fun main(){
         else -> print("Dia de la semana es incorrecto")
     }
 }*/
+
 fun condicionalWhen2(nota: Int?) {
     if (nota == null) {
         println("Por favor ingrese una nota")
@@ -29,4 +42,17 @@ fun condicionalWhen2(nota: Int?) {
         }
         println("El resultado es: $resultado")
     }
+}
+
+// ✅ Agregado tipo de retorno Int
+fun condicionalWhen3(): Int {
+    //reconocer unidades , decenas y centenas
+    val x = 1
+    val retorno = when(x){
+        in 0..9 -> 1
+        in 10..99 -> 10
+        in 100..999 -> 100
+        else -> 0
+    }
+    return retorno
 }
